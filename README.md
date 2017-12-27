@@ -37,14 +37,18 @@ heroku config:set SLACK_VERIFICATION_TOKEN=<your bot verification token>
 
 
 ## Deploy the app
+
+Clone this repo:
+
 ```
 # Clone this repo
 git clone ????
-
-# Build the app as a Docker container
-sbt docker:publishLocal
-
-# Push it to Heroku (replace <app name> with your Heroku app name)
-docker image tag slack_relay_bot_sample:0.1 registry.heroku.com/<app name>/web
-docker push registry.heroku.com/<app name>/web
 ```
+
+Modify the `herokuAppName` on `build.sbt` to match your Heroku app name, then deploy with:
+
+```
+sbt stage deployHeroku
+```
+
+Your bot should now be up and running!
